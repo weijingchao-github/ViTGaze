@@ -3,13 +3,15 @@ import sys
 
 path = os.path.dirname(__file__)
 sys.path.insert(0, path)
-
+sys.path.insert(
+    0,
+    "/home/zxr/Documents/wjc/HRI/project/gaze_point_select_ws/devel/lib/python3/dist-packages",
+)
 import copy
 import random
 
 import cv2
 import data.data_utils as data_utils
-import deepface.modules.detection as deepface_detection
 import numpy as np
 import rospy
 import torch
@@ -19,8 +21,10 @@ from PIL import Image as PIL_Image
 from sensor_msgs.msg import Image
 from torchvision import transforms
 
+import deepface.modules.detection as deepface_detection
+
 # record video
-enable_record_video = True
+enable_record_video = False
 if enable_record_video:
     fourcc = cv2.VideoWriter.fourcc(*"XVID")
     fps = 60
